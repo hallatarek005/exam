@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="output.css" rel="stylesheet">
+</head>
+
+<body class="bg-black text-white">
+
+    <!-- Side Menu -->
+    <div id="side-menu"
+        class="flex flex-col justify-between py-6 fixed top-0 left-0 h-full bg-black text-white w-64 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <nav id="menu-nav" class="flex flex-col items-center mt-8 space-y-4">
+            <button onclick="fetchMovies('popular')"
+                class="menu-button w-full px-4 py-2 text-left duration-500 hover:text-red-600">Popular</button>
+            <button onclick="fetchMovies('now_playing')"
+                class="menu-button w-full px-4 py-2 text-left duration-500 hover:text-red-600">Now
+                Playing</button>
+            <button onclick="fetchMovies('top_rated')"
+                class="menu-button w-full px-4 py-2 text-left duration-500 hover:text-red-600">Top
+                Rated</button>
+            <button onclick="fetchMovies('upcoming')"
+                class="menu-button w-full px-4 py-2 text-left duration-500 hover:text-red-600">Upcoming</button>
+
+            <button onclick="scrollToFooter()"
+                class="menu-button w-full px-4 py-2 text-left hover:text-red-600">Contact</button>
+        </nav>
+        <div class="copyrights p-3">
+            <div class="rights-social">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-solid fa-globe"></i></a>
+            </div>
+            <p class="pt-3">Copyright © 2022 All Rights Reserved. <br>Created by <span class="text-red-600">Me</span>
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- Main Content -->
+    <div id="main-content" class="transition-all duration-300 ease-in-out ml-0 flex flex-row gap-4">
+        <aside class="h-full  ">
+            <header class="bg-white p-4 flex flex-col items-center justify-between h-full fixed ">
+                <div class="image w-7">
+                    <img src="logo.png" alt="logo " class="w-full">
+                </div>
+                <button id="menu-toggle" class="text-black text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="icons flex flex-col">
+                    <i class="fa-solid fa-share-nodes text-black text-xl"></i>
+                    <i class="fa-solid fa-globe text-black text-xl"></i>
+                </div>
+            </header>
+        </aside>
+        <section>
+            <main class=" pt-10 w-full">
+                <div class="w-2/5 mx-auto mb-6">
+                    <input type="text" id="search-input"
+                        class="px-3 py-2 w-full border text-white bg-transparent border-white rounded-full"
+                        placeholder="Search for a movie...">
+                </div>
+                <div id="movies-container" class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-10  w-5/6 mx-auto">
+                    <!-- Movie cards will be inserted here -->
+                </div>
+            </main>
+
+            <footer id="footer" class="bg-black p-4 mt-16">
+                <form id="contact-form" class="grid grid-cols-1 lg:grid-cols-2 gap-10 w-5/6 mx-auto">
+                    <div class="mb-4">
+                        <input type="text" id="name" placeholder="Name"
+                            class="w-full p-2 text-white bg-black border-b border-white text-center"
+                            pattern="[A-Za-z\s]+" title="Name should only contain letters and spaces">
+                    </div>
+                    <div class="mb-4">
+                        <input type="email" id="email" placeholder="Email"
+                            class="w-full p-2 text-white bg-black border-b border-white text-center"
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            title="Enter a valid email address">
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" id="password" placeholder="Password"
+                            class="w-full p-2 text-white bg-black border-b border-white text-center" pattern=".{8,}"
+                            title="Password must be at least 8 characters long">
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" id="repassword" placeholder="Re-enter Password"
+                            class="w-full p-2 text-white bg-black border-b border-white text-center" pattern=".{8,}"
+                            title="Re-entered password must match the original password">
+                    </div>
+                    <div class="mb-4">
+                        <button type="button" id="submit-button"
+                            class="bg-black border border-white px-4 py-2 rounded">Submit</button>
+                    </div>
+                </form>
+            </footer>
+
+
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
